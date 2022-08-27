@@ -71,7 +71,6 @@ class PuzzleSolver:
 
         return np.frombuffer(base64.b64decode(base64_string), dtype="uint8")
 
-
 class Xgorgon:
     def __init__(self, params: str, data: str, cookies: str) -> None:
 
@@ -190,7 +189,6 @@ class Xgorgon:
         tmp_string = self.hex_string(num)
 
         return int(tmp_string[1:] + tmp_string[:1], 16)
-
 
 class Solver:
     def __init__(self, did, iid):
@@ -326,5 +324,3 @@ class Solver:
         return self.__post_captcha(solve)
 
 
-def _xor(string):
-    return "".join([hex(ord(c) ^ 5)[2:] for c in string])

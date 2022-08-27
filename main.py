@@ -30,18 +30,13 @@ params = urlencode(
     }
 )
 
-
 payload = f"mix_mode=1&multi_login=1&login_name={_xor(username)}&find_way=1&account_sdk_source=app"
-
-sign = Xgorgon(params, payload, None).get_value()
-
-
-url = "https://api16-va.tiktokv.com/passport/mobile/get_account/?" + params
+sign    = Xgorgon(params, payload, None).get_value()
 
 response = requests.post(
-    url,
-    data=payload,
-    headers={
+    url     = "https://api16-va.tiktokv.com/passport/mobile/get_account/?" + params,
+    data    = payload,
+    headers = {
         "x-gorgon": sign["X-Gorgon"],
         "x-khronos": sign["X-Khronos"],
     },
@@ -55,9 +50,9 @@ payload = f"need_limit_platform=0&not_login_ticket={token}&account_sdk_source=ap
 sign = Xgorgon("version_code=190303&aid=1233", payload, None).get_value()
 
 response = requests.post(
-    url="https://api16-va.tiktokv.com/passport/auth/available_ways/?version_code=190303&aid=1233",
-    data=payload,
-    headers={
+    url     = "https://api16-va.tiktokv.com/passport/auth/available_ways/?version_code=190303&aid=1233",
+    data    = payload,
+    headers = {
         "x-gorgon": sign["X-Gorgon"],
         "x-khronos": sign["X-Khronos"],
     },

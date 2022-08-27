@@ -1,4 +1,3 @@
-# need captcha solver with it
 from urllib.parse import *
 import hashlib, time, json
 import requests, base64, random
